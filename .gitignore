@@ -1,2 +1,5 @@
 .ansible
 vm-config.yaml
+*.tfvars
+.terraform
+*.tfstate

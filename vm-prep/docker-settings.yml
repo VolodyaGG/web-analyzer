@@ -1,0 +1,28 @@
+---
+- name: Docker set up
+  hosts: all
+  become: true
+  gather_facts: true
+  tasks:
+    - name: Create directory for configuration file
+      file:
+        path: /etc/systemd/system/docker.service.d
+        state: directory
+        mode: '0755'
+
+    - name: Create config file
+      copy:
+        dest: /etc/systemd/system/docker.service.d/override.conf
+        content: |
+          [Service]
+          ExecStart=
+          ExecStart=/usr/bin/dockerd -H unix:///var/run/docker.sock -H tcp://0.0.0.0:2375
+        mode: '0644'
+      notify: Reload systemd and restart docker
+
+  handlers:
+    - name: Reload systemd and restart docker
+      systemd_service:
+        name: docker
+        state: restarted
+        daemon_reload: true

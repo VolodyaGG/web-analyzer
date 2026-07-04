@@ -1,0 +1,12 @@
+---
+- name: PSQL install
+  become: true
+  hosts: all
+  gather_facts: true
+  tasks:
+    - name: Install PSQL
+      apt:
+        name:
+          - postgresql-client
+        state: present
+        update_cache: yes

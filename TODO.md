@@ -52,7 +52,7 @@
 * **Чек-лист выполнения:**
   - [ ] Спроектированы таблицы: `targets` (`id`, `url`, `created_at`) и `ping_logs` (`id`, `target_id`, `status_code`, `dns_time`, `tcp_time`, `tls_time`, `checked_at`).
   - [ ] Скрипт `test_db.sh` успешно отрабатывает внутри ВМ, подтверждая запись данных в Docker-контейнер Postgres.
-* *Заметки:* 
+* *Заметки:*
 
 ---
 

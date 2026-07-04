@@ -3,3 +3,4 @@ vm-config.yaml
 *.tfvars
 .terraform
 *.tfstate
+*.tfstate.backup
